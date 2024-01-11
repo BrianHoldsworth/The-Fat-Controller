@@ -45,14 +45,14 @@ pub use traits::*;
 #[cfg(target_os = "linux")]
 mod linux_common;
 
-#[cfg(all(target_os = "linux", not(x11)))]
+#[cfg(all(target_os = "linux", not(feature = "linux-x11-sipport")))]
 mod linux_wayland;
-#[cfg(all(target_os = "linux", not(x11)))]
+#[cfg(all(target_os = "linux", not(feature = "linux-x11-sipport")))]
 pub use linux_wayland::Context;
 
-#[cfg(all(target_os = "linux", x11))]
+#[cfg(all(target_os = "linux", feature = "linux-x11-sipport"))]
 mod linux_x11;
-#[cfg(all(target_os = "linux", x11))]
+#[cfg(all(target_os = "linux", feature = "linux-x11-sipport"))]
 pub use linux_x11::Context;
 
 #[cfg(target_os = "macos")]

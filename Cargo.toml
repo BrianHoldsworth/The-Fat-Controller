@@ -13,7 +13,9 @@ license = "MIT OR Apache-2.0"
 exclude = [".gitignore", ".idea", "docs", "iOS_client"]
 
 [features]
+default = ["ascii-fallback"]
 ascii-fallback = []
+linux-x11-support = []
 
 [target.'cfg(target_os = "macos")'.dependencies]
 # Both of these are required for UnicodeKeyboardContext::unicode_string
