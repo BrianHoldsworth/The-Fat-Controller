@@ -13,14 +13,16 @@ license = "MIT OR Apache-2.0"
 exclude = [".gitignore", ".idea", "docs", "iOS_client"]
 
 [features]
-default = ["ascii-fallback"]
+#default = ["check-x11"]
+default = []
+check-x11 = []
+x11 = []
 ascii-fallback = []
-linux-x11-support = []
 
 [target.'cfg(target_os = "macos")'.dependencies]
 # Both of these are required for UnicodeKeyboardContext::unicode_string
-unicode-segmentation = "1.8"
-core-graphics = "0.22"
+unicode-segmentation = "1.10"
+core-graphics = "0.23"
 
 [dependencies]
 tokio = { optional = true, version = "1", features = ["time"] }
