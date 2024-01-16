@@ -7,30 +7,30 @@ fn main() -> Result<(), Error> {
     let timer = SystemTime::now();
     loop {
         thread::sleep(delay);
-        ctx.key_click(Key::A).ok();
+        ctx.key_click(Key::A)?;
         thread::sleep(delay);
-        ctx.key_click(Key::B).ok();
+        ctx.key_click(Key::B)?;
         thread::sleep(delay);
-        ctx.key_click(Key::C).ok();
+        ctx.key_click(Key::C)?;
         thread::sleep(delay);
-        ctx.key_click(Key::D).ok();
+        ctx.key_click(Key::D)?;
         thread::sleep(delay);
-        ctx.key_click(Key::E).ok();
+        ctx.key_click(Key::E)?;
 
-        ctx.key_down(Key::Shift).ok();
+        ctx.key_down(Key::Shift)?;
         thread::sleep(delay);
-        ctx.key_click(Key::A).ok();
+        ctx.key_click(Key::A)?;
         thread::sleep(delay);
-        ctx.key_click(Key::B).ok();
+        ctx.key_click(Key::B)?;
         thread::sleep(delay);
-        ctx.key_click(Key::C).ok();
+        ctx.key_click(Key::C)?;
         thread::sleep(delay);
-        ctx.key_click(Key::D).ok();
+        ctx.key_click(Key::D)?;
         thread::sleep(delay);
-        ctx.key_click(Key::E).ok();
-        ctx.key_up(Key::Shift).ok();
+        ctx.key_click(Key::E)?;
+        ctx.key_up(Key::Shift)?;
 
-        ctx.key_click(Key::ReturnOrEnter).ok();
+        ctx.key_click(Key::ReturnOrEnter)?;
 
         if timer.elapsed().unwrap().as_secs()>30 {
             break;

@@ -58,7 +58,7 @@ impl Context {
 
         let mut setup: ffi::uinput_setup = unsafe { std::mem::zeroed() };
         setup.id.bustype = ffi::BUS_USB;
-        let name = b"The Fat Controller";
+        let name = b"Virtual Keyboard";
         setup.name[..name.len()].copy_from_slice(name);
 
         ctx.ioctl(ffi::UI_DEV_SETUP, &setup)?;
@@ -104,7 +104,7 @@ impl Context {
         if written == -1 {
             Err(Error::Platform(PlatformError::errno()))
         } else if written != size as isize {
-            Err(Error::Unknown)
+            Err(Error::IO(written))
         } else {
             Ok(())
         }
