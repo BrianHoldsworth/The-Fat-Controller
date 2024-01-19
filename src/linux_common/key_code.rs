@@ -6,6 +6,7 @@ pub fn to_key_code(key: Key) -> u16 {
 
     match key {
         CapsLock => KEY_CAPSLOCK,
+        NumLock => KEY_NUMLOCK,
         Shift => KEY_LEFTSHIFT,
         Control | ControlOrMeta => KEY_LEFTCTRL,
         Alt => KEY_LEFTALT,
