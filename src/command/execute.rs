@@ -29,7 +29,7 @@ impl Command {
     #[cfg(not(all(
         not(feature = "ascii-fallback"),
         target_os = "linux",
-        not(feature = "linux-x11-support")
+        not(x11)
     )))]
     fn execute_unicode<C>(&self, ctx: &mut C) -> Result<bool, GenericError<C::PlatformError>>
         where C: FallibleContext + KeyboardContext + MouseContext + AsciiKeyboardContext + UnicodeKeyboardContext
@@ -53,7 +53,7 @@ impl Command {
     #[cfg(all(
         not(feature = "ascii-fallback"),
         target_os = "linux",
-        not(feature = "linux-x11-support")
+        not(x11)
     ))]
     pub fn execute_unicode<C>(&self, ctx: &mut C) -> Result<bool, GenericError<C::PlatformError>>
         where C: FallibleContext + KeyboardContext + MouseContext + AsciiKeyboardContext
@@ -80,7 +80,7 @@ impl Command {
     #[cfg(not(all(
         not(feature = "ascii-fallback"),
         target_os = "linux",
-        not(feature = "linux-x11-support")
+        not(x11)
     )))]
     pub fn execute<C>(&self, ctx: &mut C) -> Result<(), GenericError<C::PlatformError>>
         where C: FallibleContext + KeyboardContext + MouseContext + AsciiKeyboardContext + UnicodeKeyboardContext
@@ -108,7 +108,7 @@ impl Command {
         not(all(
             not(feature = "ascii-fallback"),
             target_os = "linux",
-            not(feature = "linux-x11-support")
+            not(x11)
         )),
         feature = "tokio"
     ))]
@@ -137,7 +137,7 @@ impl Command {
     #[cfg(all(
         not(feature = "ascii-fallback"),
         target_os = "linux",
-        not(feature = "linux-x11-support")
+        not(x11)
     ))]
     pub fn execute<C>(&self, ctx: &mut C) -> Result<(), GenericError<C::PlatformError>>
         where C: FallibleContext + KeyboardContext + MouseContext + AsciiKeyboardContext
@@ -164,7 +164,7 @@ impl Command {
     #[cfg(all(
         not(feature = "ascii-fallback"),
         target_os = "linux",
-        not(feature = "linux-x11-support"),
+        not(x11),
         feature = "tokio"
     ))]
     pub async fn execute_async<C>(&self, ctx: &mut C) -> Result<(), GenericError<C::PlatformError>>

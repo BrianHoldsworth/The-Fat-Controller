@@ -32,7 +32,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tfc = "0.6"
+tfc = "0.7"
 ```
 
 ## Linux
@@ -45,7 +45,8 @@ compared to X11, hence the missing features.
 By default (with the `check-x11` feature enabled), build-time detection of X11
 will be performed to determine which implementation to use. Disabling default
 features will disable this check and the Wayland implementation will be used
-unconditionally. The `x11` feature can be used to choose the X11 implementation unconditionally.
+unconditionally. The `x11` feature can be used to choose the X11 implementation
+unconditionally.
 
 ### With X11
 

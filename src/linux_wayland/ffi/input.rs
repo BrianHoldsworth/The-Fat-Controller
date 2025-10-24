@@ -5,7 +5,6 @@ use std::ffi::c_long;
 #[repr(C)]
 #[allow(non_camel_case_types)]
 pub struct timeval {
-    // Not quite sure if these should be 32 or 64
     pub tv_sec: c_long,
     pub tv_usec: c_long,
 }

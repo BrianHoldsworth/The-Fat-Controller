@@ -8,7 +8,7 @@ fn main() -> Result<(), Error> {
     let delay = Duration::from_millis(10);
 
     let mut ctx = Context::new()?;
-    let center = (500.0, 500.0);
+    let center = ctx.cursor_location()?;
     let center = (center.0 as f64 - radius, center.1 as f64);
 
     for step in 0..steps * revolutions {
