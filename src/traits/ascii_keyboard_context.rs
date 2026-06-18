@@ -222,12 +222,12 @@ fn apply<C>(ctx: &mut C, key_shift: KeyShift) -> Result<(), GenericError<C::Plat
 {
     if key_shift.shift() {
         ctx.key_down(Key::Shift)?;
-        ctx.key_click(key_shift.key())?;
+        ctx.key_click(key_shift.key(), None)?;
         // Necessary for linux_wayland.
         std::thread::sleep(std::time::Duration::from_millis(10));
         ctx.key_up(Key::Shift)
     } else {
-        ctx.key_click(key_shift.key())
+        ctx.key_click(key_shift.key(), None)
     }
 }
 

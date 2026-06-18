@@ -1,3 +1,5 @@
+use std::{thread::sleep, time::Duration};
+
 use super::FallibleContext;
 use crate::{Key, GenericError};
 
@@ -20,8 +22,12 @@ pub trait KeyboardContext: FallibleContext {
     /// This is equivalent to calling [`key_down`](KeyboardContext::key_down)
     /// followed by [`key_up`](KeyboardContext::key_up). Although, some
     /// platforms may optimize this.
-    fn key_click(&mut self, key: Key) -> Result<(), GenericError<Self::PlatformError>> {
+    fn key_click(&mut self, key: Key, hold: Option<Duration>)
+                -> Result<(), GenericError<Self::PlatformError>> {
         self.key_down(key)?;
+        if let Some(t) = hold {
+            sleep(t);
+        }
         self.key_up(key)
     }
 }

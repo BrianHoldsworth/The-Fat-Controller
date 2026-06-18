@@ -10,7 +10,7 @@ impl Command {
         match self {
             KeyDown(key) => ctx.key_down(*key),
             KeyUp(key) => ctx.key_up(*key),
-            KeyClick(key) => ctx.key_click(*key),
+            KeyClick(key) => ctx.key_click(*key, None),
             MouseMoveRel(dx, dy) => ctx.mouse_move_rel(*dx, *dy),
             MouseMoveAbs(x, y) => ctx.mouse_move_abs(*x, *y),
             MouseScroll(dx, dy) => ctx.mouse_scroll(*dx, *dy),
